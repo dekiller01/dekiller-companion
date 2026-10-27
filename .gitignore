@@ -1,0 +1,19 @@
+# Credenciales
+.env
+.env.*
+!.env.example
+
+# Dependencias y archivos locales
+node_modules/
+backups/
+*.log
+*.tmp
+
+# Memoria y datos privados
+data/memory.json
+data/*.private.json
+
+# Archivos de Android y editores
+.DS_Store
+.idea/
+.vscode/

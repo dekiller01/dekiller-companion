@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101522">
+  <title>Dekiller Companion</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="avatar" aria-hidden="true">✦</div>
+      <div class="brand">
+        <h1>Dekiller Companion</h1>
+        <p id="status">Comprobando conexión…</p>
+      </div>
+      <button id="memoryButton" class="secondary" type="button">Memoria</button>
+    </header>
+
+    <section class="avatarPanel" aria-label="Avatar anime 3D">
+      <div class="avatarHeading">
+        <div>
+          <strong>Compañera virtual</strong>
+          <p id="avatarStatus">Preparando avatar 3D…</p>
+        </div>
+        <button id="avatarMotion" class="secondary" type="button">Pausar movimiento</button>
+      </div>
+      <div id="avatarStage" class="avatarStage">
+        <div class="avatarFallback" id="avatarFallback">✦<span>Avatar 3D</span></div>
+      </div>
+      <p class="avatarNote">Avatar 3D estilizado de prueba · requiere conexión para cargar Three.js.</p>
+    </section>
+
+    <section class="voicePanel" aria-label="Controles de voz">
+      <div class="voiceActions">
+        <button id="micButton" class="micButton" type="button" aria-pressed="false">🎙️ Hablar</button>
+        <button id="stopVoiceButton" class="secondary" type="button">⏹ Detener voz</button>
+        <label class="speakToggle"><input id="autoSpeak" type="checkbox" checked> Leer respuestas</label>
+      </div>
+      <div class="voiceSettings">
+        <label for="voiceSelect">Voz de Dekiller</label>
+        <select id="voiceSelect" aria-label="Voz de Dekiller">
+          <option value="">Cargando voces disponibles…</option>
+        </select>
+        <button id="testVoiceButton" class="secondary testVoice" type="button">Probar voz</button>
+      </div>
+      <p id="voiceStatus" class="voiceStatus" role="status">La voz usa las opciones disponibles en Android.</p>
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite">
+      <article class="bubble assistant">Hola. Soy la primera versión de Dekiller Companion. Podemos conversar aquí; los recuerdos que guardes estarán en este teléfono.</article>
+    </section>
+    <form id="chatForm" class="composer">
+      <textarea id="messageInput" maxlength="4000" rows="1" placeholder="Escríbele algo…" aria-label="Mensaje" required></textarea>
+      <button id="sendButton" type="submit">Enviar</button>
+    </form>
+    <p class="foot">Prototipo local · Tus datos se guardan en la carpeta del proyecto.</p>
+  </main>
+  <dialog id="memoryDialog">
+    <div class="dialogHead"><h2>Memoria personal</h2><button id="closeMemory" class="secondary" type="button">Cerrar</button></div>
+    <p class="hint">Añade solo datos que quieras que la compañera recuerde. Puedes borrarlos en cualquier momento.</p>
+    <form id="factForm" class="factForm">
+      <input id="factInput" maxlength="300" placeholder="Ej.: Me gustan los juegos tipo Souls" required>
+      <button type="submit">Guardar</button>
+    </form>
+    <ul id="factsList" class="facts"></ul>
+    <button id="forgetAll" class="danger" type="button">Borrar todos los recuerdos</button>
+  </dialog>
+  <script src="/app.js" defer></script>
+  <script type="module" src="/avatar.js"></script>
+</body>
+</html>

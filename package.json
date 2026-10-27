@@ -1,0 +1,11 @@
+{
+  "name": "dekiller-companion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototipo local de Dekiller Companion para Termux",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  }
+}
